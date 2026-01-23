@@ -207,7 +207,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
           }
 
           if(image != nil) {
-            let photo = SharePhoto(image: image!, userGenerated: true)
+            let photo = SharePhoto(image: image!, isUserGenerated: true)
             let shareContent = SharePhotoContent()
             shareContent.photos = [photo]
             
@@ -240,8 +240,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
                       return
                   }
 
-                  let shareVideo = ShareVideo()
-                  shareVideo.videoURL = URL(string: "assets-library://asset/asset.mp4?id=" + assetId.components(separatedBy:"/")[0] + "&ext=mp4")
+                  let shareVideo = ShareVideo(videoURL:  URL(string: "assets-library://asset/asset.mp4?id=" + assetId.components(separatedBy:"/")[0] + "&ext=mp4")!)
                   let shareContent = ShareVideoContent()
                   shareContent.video = shareVideo
                   
